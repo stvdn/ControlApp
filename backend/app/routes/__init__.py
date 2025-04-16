@@ -1,0 +1,1 @@
+from .product_routes import bp as product_bp

@@ -1,0 +1,15 @@
+
+.vscode/
+
+# Python (Backend - Flask)
+__pycache__/
+
+# Node.js (Frontend - Vite)
+node_modules/
+build/
+dist/
+.cache/
+.pnpm-store/
+
+# Environment Variables
+.env
