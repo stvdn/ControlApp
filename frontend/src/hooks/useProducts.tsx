@@ -13,7 +13,7 @@ export default function useProducts(){
                 const data = await fetchProducts()
                 setProducts(data)
             } catch (err) {
-                setError('Failed to load products');
+                setError('Failed to load products')
                 console.log('err')
             } finally {
                 setIsLoading(false)

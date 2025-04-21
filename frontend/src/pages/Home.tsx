@@ -1,7 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function HomePage() {
+export default function Home() {
   const banners = [
     {
       id: 1,
@@ -30,7 +29,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-text-base">
       {/* Sección Principal */}
       <section className="flex items-center justify-center py-20 bg-gradient-to-r from-purple-600 to-pink-600">
         <div className="max-w-4xl px-6 text-center text-white">
@@ -39,7 +38,7 @@ export default function HomePage() {
           <p className="text-xl mb-12">Descubre las últimas tendencias</p>
           <Link 
             to="/products" 
-            className="inline-block bg-white text-purple-600 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-lg"
+            className="inline-block bg-white text-text-base px-10 py-4 rounded-full font-bold hover:bg-pink-300 hover:text-white transition-all shadow-lg hover:shadow-xl text-lg"
           >
             Comprar Ahora
           </Link>
@@ -49,7 +48,7 @@ export default function HomePage() {
       {/* Banners Promocionales */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Nuestras Colecciones</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Nuestras Colecciones</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {banners.map((banner) => (
               <div key={banner.id} className={`${banner.bgClass} rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden`}>
@@ -61,11 +60,11 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-2xl font-bold mb-2 text-gray-800">{banner.title}</h3>
-                  <p className="text-gray-600 mb-6">{banner.subtitle}</p>
+                  <h3 className="text-2xl font-bold mb-2">{banner.title}</h3>
+                  <p className="mb-6">{banner.subtitle}</p>
                   <Link
                     to={banner.link}
-                    className="inline-block border-2 border-gray-800 px-6 py-2 rounded-full font-medium hover:bg-gray-800 hover:text-white transition-colors"
+                    className="inline-block border-1 bg-white px-6 py-2 rounded-lg font-medium hover:bg-pink-200 hover:text-white transition-colors"
                   >
                     Explorar
                   </Link>
@@ -77,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Propuestas de Valor */}
-      <section className="bg-gray-800 text-white py-16 px-6">
+      <section className="bg-purple-700 text-white py-16 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="p-6">
             <div className="text-4xl mb-4">🚚</div>

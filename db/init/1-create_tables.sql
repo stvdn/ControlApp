@@ -1,5 +1,5 @@
 -- Create Users Table with role-based access control
-CREATE TABLE user_admin (
+CREATE TABLE user_info (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     lastname VARCHAR(50) NOT NULL,
@@ -28,6 +28,7 @@ CREATE TABLE product (
     provider_id INT,
     category_id INT,
     name VARCHAR(255) NOT NULL,
+    description VARCHAR,
     price DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL,
     size VARCHAR(50),
@@ -46,7 +47,7 @@ CREATE TABLE product (
 -- Create Orders Table
 CREATE TABLE order_ticket (
     id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES user_admin(id),
+    user_id INT REFERENCES user_info(id),
     total_amount DECIMAL(10, 2) NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(50) DEFAULT 'pending',

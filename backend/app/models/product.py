@@ -10,6 +10,7 @@ class Product(db.Model):
     provider_id = db.Column(db.Integer, ForeignKey('provider.id'))
     category_id = db.Column(db.Integer, ForeignKey('category.id'))
     name = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.String)
     price = db.Column(db.Numeric(10, 2), nullable=False)
     stock = db.Column(db.Integer, nullable=False)
     size = db.Column(db.String(50))

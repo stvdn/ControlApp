@@ -13,6 +13,7 @@ def get_products():
             'provider_id': product.provider_id,
             'category_id': product.category_id,
             'name': product.name,
+            'description': product.description,
             'price': str(product.price),
             'stock': product.stock,
             'size': product.size,
@@ -22,8 +23,8 @@ def get_products():
             'tags': product.tags,
             'image_paths': product.image_paths,
             'qr_code_uuid': str(product.qr_code_uuid),
-            'created_at': product.created_at.isoformat(),
-            'updated_at': product.updated_at.isoformat(),
+            'created_at': product.created_at,
+            'updated_at': product.updated_at,
         }
         for product in products
     ]
@@ -37,6 +38,7 @@ def get_product(product_id):
         'provider_id': product.provider_id,
         'category_id': product.category_id,
         'name': product.name,
+        'description': product.description,
         'price': str(product.price),
         'stock': product.stock,
         'size': product.size,
@@ -60,6 +62,7 @@ def post_product():
             provider_id=data['provider_id'],
             category_id=data['category_id'],
             name=data['name'],
+            description=data['description'],
             price=data['price'],
             stock=data['stock'],
             size=data.get('size'),
@@ -88,6 +91,7 @@ def update_product(product_id):
         product.provider_id = data.get('provider_id', product.provider_id)
         product.category_id = data.get('category_id', product.category_id)
         product.name = data.get('name', product.name)
+        product.description = data.get('description', product.description)
         product.price = data.get('price', product.price)
         product.stock = data.get('stock', product.stock)
         product.size = data.get('size', product.size)

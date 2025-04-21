@@ -1,55 +1,95 @@
 -- load_data.sql
 
 -- Insert Users
-INSERT INTO user_admin (name, lastname, password_hash, email, role) VALUES
+INSERT INTO user_info (name, lastname, password_hash, email, role) VALUES
 ('Emily', 'Admin', 'admin123', 'emily@example.com', 'admin'), -- Replace with actual hashed password
 ('Steven', 'User', 'admin123', 'steven@example.com', 'user'); -- Replace with actual hashed password
 -- Insert Providers
-INSERT INTO provider (name) VALUES
-('Supplier A'),
-('Supplier B'),
-('Supplier C');
+INSERT INTO provider (name) VALUES 
+('Fashion Forward'),
+('Urban Threads'),
+('Classic Styles'),
+('Active Wear Inc.'),
+('Luxury Apparel');
 
 -- Insert Categories
-INSERT INTO category (name) VALUES
-('Electronics'),
-('Clothing'),
-('Books');
+INSERT INTO category (name) VALUES 
+('Men''s Clothing'),
+('Women''s Clothing'),
+('Kids'' Clothing'),
+('Accessories'),
+('Sportswear');
 
--- Insert Products
--- load_data.sql (Continued from previous)
+-- Insert Products (20 items)
+INSERT INTO product (
+    provider_id, category_id, name, description, price, stock, size, 
+    discount, gender, age, tags, image_paths
+) VALUES
+-- Men's Clothing
+(1, 1, 'Classic White Shirt', '100% cotton formal shirt', 29.99, 50, 'M', 0, 'male', 'adult', 
+ '{"shirt", "formal", "cotton"}', '{"shirt_white_1.jpg", "shirt_white_2.jpg"}'),
 
--- Insert Clothing Products
-INSERT INTO product (provider_id, category_id, name, price, stock, size, discount, gender, age, tags, image_paths) VALUES
-(1, 2, 'Classic White T-Shirt', 19.99, 150, 'M', 0.00, 'Unisex', 'Adult', '{"clothing", "tshirt", "basic"}', '{"https://example.com/white_tshirt.jpg"}'),
-(2, 2, 'Slim Fit Jeans', 49.99, 80, '32', 0.10, 'Male', 'Adult', '{"clothing", "jeans", "slim"}', '{"https://example.com/slim_jeans.jpg"}'),
-(3, 2, 'Floral Print Dress', 39.99, 120, 'S', 0.05, 'Female', 'Adult', '{"clothing", "dress", "floral"}', '{"https://example.com/floral_dress.jpg"}'),
-(1, 2, 'Hooded Sweatshirt', 34.99, 90, 'L', 0.15, 'Unisex', 'Adult', '{"clothing", "hoodie", "casual"}', '{"https://example.com/hooded_sweatshirt.jpg"}'),
-(2, 2, 'Striped Polo Shirt', 24.99, 110, 'XL', 0.00, 'Male', 'Adult', '{"clothing", "polo", "striped"}', '{"https://example.com/striped_polo.jpg"}'),
-(3, 2, 'Summer Shorts', 29.99, 100, '34', 0.20, 'Male', 'Adult', '{"clothing", "shorts", "summer"}', '{"https://example.com/summer_shorts.jpg"}'),
-(1, 2, 'Knit Sweater', 44.99, 70, 'M', 0.10, 'Female', 'Adult', '{"clothing", "sweater", "knit"}', '{"https://example.com/knit_sweater.jpg"}'),
-(2, 2, 'Cargo Pants', 39.99, 85, '36', 0.05, 'Male', 'Adult', '{"clothing", "pants", "cargo"}', '{"https://example.com/cargo_pants.jpg"}'),
-(3, 2, 'Maxi Skirt', 34.99, 95, 'L', 0.15, 'Female', 'Adult', '{"clothing", "skirt", "maxi"}', '{"https://example.com/maxi_skirt.jpg"}'),
-(1, 2, 'Baseball Cap', 14.99, 180, NULL, 0.00, 'Unisex', 'Adult', '{"clothing", "cap", "casual"}', '{"https://example.com/baseball_cap.jpg"}'),
-(2, 2, 'Leather Belt', 29.99, 120, NULL, 0.10, 'Male', 'Adult', '{"clothing", "belt", "leather"}', '{"https://example.com/leather_belt.jpg"}'),
-(3, 2, 'Silk Scarf', 24.99, 150, NULL, 0.05, 'Female', 'Adult', '{"clothing", "scarf", "silk"}', '{"https://example.com/silk_scarf.jpg"}'),
-(1, 2, 'Ankle Socks (3-pack)', 9.99, 200, NULL, 0.00, 'Unisex', 'Adult', '{"clothing", "socks", "basic"}', '{"https://example.com/ankle_socks.jpg"}'),
-(2, 2, 'Formal Shirt', 39.99, 80, '16', 0.15, 'Male', 'Adult', '{"clothing", "shirt", "formal"}', '{"https://example.com/formal_shirt.jpg"}'),
-(3, 2, 'Leggings', 24.99, 130, 'M', 0.20, 'Female', 'Adult', '{"clothing", "leggings", "active"}', '{"https://example.com/leggings.jpg"}'),
-(1, 2, 'Beanie Hat', 19.99, 160, NULL, 0.10, 'Unisex', 'Adult', '{"clothing", "hat", "beanie"}', '{"https://example.com/beanie_hat.jpg"}'),
-(2, 2, 'Tie', 14.99, 140, NULL, 0.05, 'Male', 'Adult', '{"clothing", "tie", "formal"}', '{"https://example.com/tie.jpg"}'),
-(3, 2, 'Cardigan', 49.99, 75, 'L', 0.00, 'Female', 'Adult', '{"clothing", "cardigan", "knit"}', '{"https://example.com/cardigan.jpg"}'),
-(1, 2, 'Rain Jacket', 59.99, 60, 'XL', 0.15, 'Unisex', 'Adult', '{"clothing", "jacket", "rain"}', '{"https://example.com/rain_jacket.jpg"}'),
-(2, 2, 'Boxer Briefs (3-pack)', 24.99, 100, NULL, 0.10, 'Male', 'Adult', '{"clothing", "underwear", "basic"}', '{"https://example.com/boxer_briefs.jpg"}');
+(2, 1, 'Slim Fit Jeans', 'Dark blue denim jeans with stretch', 59.95, 30, '32x32', 10, 'male', 'adult', 
+ '{"jeans", "denim", "slim fit"}', '{"jeans_blue_1.jpg"}'),
 
--- Important: Replace example.com URLs with actual image URLs.
--- Insert Orders
-INSERT INTO order_ticket (user_id, total_amount, status, payment_method) VALUES
-(2, 1029.98, 'completed', 'Credit Card'),
-(1, 14.99, 'pending', 'PayPal');
+(3, 1, 'Leather Jacket', 'Genuine leather biker jacket', 199.99, 15, 'L', 0, 'male', 'adult', 
+ '{"jacket", "leather", "biker"}', '{"jacket_leather_1.jpg", "jacket_leather_2.jpg"}'),
 
--- Insert Order Items
-INSERT INTO order_item (order_id, product_id, quantity, unit_price) VALUES
-(1, 1, 1, 999.99),
-(1, 2, 1, 29.99),
-(2, 3, 1, 14.99);
+-- Women's Clothing
+(1, 2, 'Floral Summer Dress', 'Lightweight dress with floral pattern', 45.50, 25, 'S', 15, 'female', 'adult', 
+ '{"dress", "summer", "floral"}', '{"dress_floral_1.jpg"}'),
+
+(2, 2, 'High-Waisted Jeans', 'Distressed skinny jeans', 65.00, 40, '28x30', 0, 'female', 'adult', 
+ '{"jeans", "skinny", "distressed"}', '{"jeans_highwaist_1.jpg"}'),
+
+(4, 2, 'Yoga Leggings', 'High-performance workout leggings', 39.99, 60, 'M', 20, 'female', 'adult', 
+ '{"leggings", "sport", "yoga"}', '{"leggings_black_1.jpg"}'),
+
+-- Kids' Clothing
+(3, 3, 'Dinosaur T-Shirt', 'Cotton t-shirt with dinosaur print', 14.99, 100, '6-7', 0, 'unisex', 'child', 
+ '{"t-shirt", "kids", "dinosaur"}', '{"tshirt_dino_1.jpg"}'),
+
+(5, 3, 'Princess Dress', 'Sparkly dress for special occasions', 34.95, 20, '4-5', 10, 'female', 'child', 
+ '{"dress", "princess", "sparkly"}', '{"dress_princess_1.jpg"}'),
+
+-- Accessories
+(2, 4, 'Wool Beanie', 'Warm winter hat in multiple colors', 19.99, 80, 'One Size', 0, 'unisex', 'adult', 
+ '{"hat", "winter", "accessory"}', '{"beanie_gray_1.jpg"}'),
+
+(4, 4, 'Sports Backpack', 'Lightweight backpack for workouts', 49.95, 35, NULL, 15, 'unisex', 'adult', 
+ '{"bag", "sport", "backpack"}', '{"backpack_sports_1.jpg"}'),
+
+-- More Men's
+(5, 1, 'Cashmere Sweater', 'Luxury 100% cashmere pullover', 149.00, 12, 'XL', 0, 'male', 'adult', 
+ '{"sweater", "winter", "luxury"}', '{"sweater_cashmere_1.jpg"}'),
+
+(1, 1, 'Cargo Shorts', 'Utility shorts with multiple pockets', 34.99, 45, '34', 0, 'male', 'adult', 
+ '{"shorts", "summer", "cargo"}', '{"shorts_cargo_1.jpg"}'),
+
+-- More Women's
+(3, 2, 'Silk Blouse', 'Elegant evening blouse', 79.95, 18, 'M', 25, 'female', 'adult', 
+ '{"blouse", "silk", "elegant"}', '{"blouse_silk_1.jpg"}'),
+
+(5, 2, 'Evening Gown', 'Red carpet ready gown', 299.99, 5, '8', 0, 'female', 'adult', 
+ '{"gown", "evening", "formal"}', '{"gown_evening_1.jpg"}'),
+
+-- More Kids'
+(2, 3, 'Superhero Costume', 'Full costume with cape', 29.99, 30, '5-6', 0, 'male', 'child', 
+ '{"costume", "superhero", "play"}', '{"costume_hero_1.jpg"}'),
+
+(4, 3, 'Rain Jacket', 'Waterproof jacket with hood', 42.50, 25, '7-8', 10, 'unisex', 'child', 
+ '{"jacket", "rain", "waterproof"}', '{"jacket_rain_1.jpg"}'),
+
+-- Sportswear
+(4, 5, 'Running Shoes', 'Lightweight performance runners', 89.99, 40, '9', 20, 'male', 'adult', 
+ '{"shoes", "running", "sport"}', '{"shoes_running_1.jpg"}'),
+
+(1, 5, 'Training Tank Top', 'Breathable workout top', 24.95, 65, 'L', 0, 'female', 'adult', 
+ '{"top", "sport", "training"}', '{"tank_sports_1.jpg"}'),
+
+-- More Accessories
+(3, 4, 'Leather Belt', 'Genuine leather dress belt', 45.00, 30, '38', 0, 'male', 'adult', 
+ '{"belt", "leather", "accessory"}', '{"belt_leather_1.jpg"}'),
+
+(5, 4, 'Designer Handbag', 'Luxury leather tote bag', 249.00, 8, NULL, 0, 'female', 'adult', 
+ '{"bag", "luxury", "handbag"}', '{"bag_designer_1.jpg"}');
