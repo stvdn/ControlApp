@@ -3,10 +3,10 @@ export interface Product {
   provider_id: number;
   category_id: number;
   name: string;
-  description: string;
+  description?: string;
   price: number;
   stock: number;
-  size: string;
+  size?: string;
   discount?: number | null;
   gender?: string | null;
   age?: string | null;

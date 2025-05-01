@@ -57,6 +57,7 @@ def post_product():
     data = request.get_json()
     if not data:
         abort(400, "Invalid JSON")
+    
     try:
         new_product = Product(
             provider_id=data['provider_id'],
@@ -115,3 +116,5 @@ def delete_product(product_id):
     db.session.delete(product)
     db.session.commit()
     return jsonify({'message': 'Product deleted'})
+
+

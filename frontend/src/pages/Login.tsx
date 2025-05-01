@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
-import { loginAPI } from '../api/authAPI';
 
 export default function Login(){
     const [email, setEmail] = useState("");
@@ -17,14 +16,14 @@ export default function Login(){
         await login(email, password);
         navigate("/");
       } catch (error) {
-        setError("Login Failed");
+        setError("Error al iniciar sesion");
       }
     };
 
     return (
       <div className="flex items-center justify-center min-h-screen text-text-base">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md border border-border-color bg-gradient-to-r from-pink-200 to-purple-200">
-          <h2 className="text-2xl font-semibold mb-6 text-center text-secondary">Sign In</h2>
+        <div className="p-8 rounded-lg shadow-lg w-full max-w-md border bg-gradient-to-r from-pink-200 to-purple-200">
+          <h2 className="text-2xl font-semibold mb-6 text-center text-secondary">Iniciar Sesion</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Input */}
             <div>
@@ -59,15 +58,15 @@ export default function Login(){
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-pink-50 hover:bg-purple-500 hover:text-white font-bold py-3 px-6 rounded-lg w-full"
+              className="bg-pink-50 hover:bg-purple-500 hover:text-white font-bold py-3 px-6 rounded-lg w-full hover:cursor-pointer"
             >
-              Sign In
+              Ingresar
             </button>
 
             {/* Error Display */}
             {error && (
-              <div className="bg-error-bg border border-error text-error px-4 py-3 rounded-lg relative" role="alert">
-                <strong className="font-bold">Error:</strong>
+              <div className="bg-error-bg border border-error text-red-500 px-4 py-3 rounded-lg relative" role="alert">
+                <strong className="font-bold">Error: </strong>
                 <span className="block sm:inline">{error}</span>
               </div>
             )}

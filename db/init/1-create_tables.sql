@@ -32,7 +32,7 @@ CREATE TABLE product (
     price DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL,
     size VARCHAR(50),
-    discount DECIMAL(5, 2),
+    discount INT,
     gender VARCHAR(50),
     age VARCHAR(50),
     tags VARCHAR[] DEFAULT '{}',

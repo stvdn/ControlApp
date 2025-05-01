@@ -6,7 +6,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './pages/ProtectedRoute';
-import CRUDProduct from './pages/CRUDProduct';
+import ProductManagement from './pages/ProductManagement';
 
 function App() {
   return (
@@ -18,9 +18,9 @@ function App() {
           <Routes>
               <Route path="/" element={<Home/>} />
               <Route path="/login" element={<Login />} />
-              <Route path="/product" element={<CRUDProduct/>} />
               <Route path="/collection" />
               <Route element={<ProtectedRoute/>}>
+                <Route path="/product" element={<ProductManagement/>} />
               </Route>
           </Routes>
           </main>

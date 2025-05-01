@@ -3,3 +3,14 @@
 @theme {
     --color-text-base: #9A52FF;      /* purple-dark (example for general text) */ 
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #9A52FF !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important; /* Optional: Override background */
+  border: 1px solid #9A52FF !important; /* Optional: Override border */
+}

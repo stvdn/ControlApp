@@ -26,15 +26,6 @@ CORS(
     }
 )
 
-# Enable CORS for specific routes (alternative approach)
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:5173')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,PUT,DELETE')
-    response.headers.add('Access-Control-Allow-Credentials', 'true')
-    return response
-
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -46,3 +37,4 @@ from .models import *
 from .routes import *
 app.register_blueprint(product_bp)
 app.register_blueprint(auth_bp)
+app.register_blueprint(presigned_bp)

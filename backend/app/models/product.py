@@ -14,7 +14,7 @@ class Product(db.Model):
     price = db.Column(db.Numeric(10, 2), nullable=False)
     stock = db.Column(db.Integer, nullable=False)
     size = db.Column(db.String(50))
-    discount = db.Column(db.Numeric(5, 2))
+    discount = db.Column(db.Integer)
     gender = db.Column(db.String(50))
     age = db.Column(db.String(50))
     tags = db.Column(ARRAY(db.String))
